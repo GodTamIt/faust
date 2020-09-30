@@ -109,6 +109,8 @@ class AgentManager(Service, AgentManagerT, ManagedUserDict):
         """Update indices."""
         # keep mapping from topic name to set of agents.
         by_topic_index = self._by_topic
+
+        by_topic_index.clear()
         for agent in self.values():
             for topic in agent.get_topic_names():
                 by_topic_index[topic].add(agent)
